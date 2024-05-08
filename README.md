@@ -1,39 +1,79 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# take_screenshot
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+A simple Dart package for capturing screenshots of single widgets or specific descendant widgets all at once.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+### Widgets
 
-## Getting started
+- `ScreenShotWidget`: Wraps a list of `Widget`s for which we want to take a screenshot.
+- `TakeScreenShot`: Wraps all descendant `ScreenShotWidget`s and provides a way to capture screenshots for all of them.
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+### Controllers
 
-## Usage
+- `ScreenShotController`: Used to take a screenshot for children of `ScreenShotWidget`.
+- `TakeScreenShotController`: Used to get screenshots from all descendant `ScreenShotWidget` widgets. It provides a list of images, one for each descendant `ScreenShotWidget`, in the same order as they occur.
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+## Getting Started
+
+### Using `ScreenShotWidget` widget
 
 ```dart
-const like = 'sample';
+// Define a controller for `ScreenShotWidget` which will be used to take screenshots
+ScreenShotController screenShotController = ScreenShotController();
+
+// Other code...
+
+// Wrap the widget list 
+const ScreenShotWidget(
+	children: [
+		Text("Widget to be captured as an image"),
+	]
+);
+
+// Other code...
+
+// Use the controller's `captureScreenShot` method to get a screenshot of the widget
+Uint8List capturedImage = await screenShotController.captureScreenShot();
+
 ```
 
-## Additional information
+### Using `TakeScreenShot` widget
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+```dart
+// Define a controller for `TakeScreenShot` which will be used to take screenshots of all descendant `ScreenShotWidget`s all at once
+TakeScreenShotController takeScreenShotController = TakeScreenShotController();
+
+// Other code...
+
+// Wrap all descendant `ScreenShotWidget` widgets 
+TakeScreenShot(
+	controller: takeScreenShotController,
+	// Take a screenshot of the entire column widget
+	child: ScreenShotWidget(
+		children: [
+			Column(
+				children: [
+					// Only captured by wrapping `ScreenShotWidget` widget
+					const Text("Another Widget"),
+					// Capturing specific sub-part
+					const ScreenShotWidget(
+						children: [
+							Text("Hello World")
+						],
+					),
+					// Capturing specific sub-part
+					ScreenShotWidget(
+						children: [
+							Container(
+								width: 100,
+								height: 100,
+								color: Colors.red,
+							)
+						],
+					)
+				],
+			),
+		],
+	),
+);
