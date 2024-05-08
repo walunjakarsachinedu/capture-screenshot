@@ -34,7 +34,7 @@ class _ScreenShotWidgetState extends State<ScreenShotWidget> {
   void initState() {
     super.initState();
 		_repaintKey = GlobalKey();
-		widget.controller?.captureScreenShot = _capturePng;
+		widget.controller?.setCaptureScreenShotMethod(_capturePng);
 
     Future.delayed(
       Duration.zero,
