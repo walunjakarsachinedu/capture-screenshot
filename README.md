@@ -1,4 +1,4 @@
-A simple Dart package for capturing screenshots of single widgets or specific descendant widgets all at once.
+A simple Dart package for capturing screenshots of single widget or specific descendant widgets all at once.
 
 ## Features
 
@@ -31,9 +31,8 @@ const ScreenShotWidget(
 
 // Other code...
 
-// Use the controller's `captureScreenShot` method to get a screenshot of the widget
+// Use the controller's `captureScreenShot` method to get a screenshot of the children widget.
 Uint8List capturedImage = await screenShotController.captureScreenShot();
-
 ```
 
 **Using `TakeScreenShot` widget**
@@ -45,6 +44,7 @@ TakeScreenShotController takeScreenShotController = TakeScreenShotController();
 // Other code...
 
 // Wrap all descendant `ScreenShotWidget` widgets 
+// Capture three images: one for Column, one for Text, and one for Container
 TakeScreenShot(
   controller: takeScreenShotController, 
   // Take a screenshot of the entire column widget
@@ -75,3 +75,9 @@ TakeScreenShot(
     ],
   ),
 );
+
+// Other code...
+
+// Use the controller's `captureScreenShots` method to get screenshots from all descendant `ScreenShotWidget` widgets and put them in list.
+List<Uint8List> images = (await takeScreenShotController.captureScreenshots());
+```
