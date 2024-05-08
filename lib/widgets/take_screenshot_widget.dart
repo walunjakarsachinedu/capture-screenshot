@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:take_screenshot/controllers/screenshot_controller.dart';
-import 'package:take_screenshot/controllers/take_screenshot_controller.dart';
+import 'package:capture_screenshots/controllers/screenshot_controller.dart';
+import 'package:capture_screenshots/controllers/take_screenshot_controller.dart';
 
 
 class TakeScreenShot extends InheritedWidget {

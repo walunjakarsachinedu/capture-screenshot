@@ -1,5 +1,3 @@
-# take_screenshot
-
 A simple Dart package for capturing screenshots of single widgets or specific descendant widgets all at once.
 
 ## Features

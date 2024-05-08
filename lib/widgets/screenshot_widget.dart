@@ -3,8 +3,8 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:take_screenshot/controllers/screenshot_controller.dart';
-import 'package:take_screenshot/widgets/take_screenshot_widget.dart';
+import 'package:capture_screenshots/controllers/screenshot_controller.dart';
+import 'package:capture_screenshots/widgets/take_screenshot_widget.dart';
 
 /// Capture screenshot of all children.
 class ScreenShotWidget extends StatefulWidget {

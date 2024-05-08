@@ -1,7 +1,7 @@
-name: take_screenshot
-description: A new Flutter package project.
-version: 0.0.1
-homepage:
+name: capture_screenshots
+description: Provide easy way to take screenshot of single or multiple widget.
+version: 0.0.4
+homepage: https://github.com/walunjakarsachinedu/take-screenshot
 
 environment:
   sdk: '>=2.19.0 <3.0.0'
@@ -16,6 +16,13 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^2.0.0
 
+platforms:
+  android:
+  ios:
+  linux:
+  macos:
+  web:
+  windows:
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 

@@ -1,7 +1,7 @@
 
 import 'dart:typed_data';
 
-import 'package:take_screenshot/controllers/screenshot_controller.dart';
+import 'package:capture_screenshots/controllers/screenshot_controller.dart';
 
 class TakeScreenShotController {
 
