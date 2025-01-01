@@ -1,10 +1,10 @@
 name: capture_screenshots
 description: Provide easy way to take screenshot of single or multiple widget.
-version: 0.0.6
+version: 0.0.7
 homepage: https://github.com/walunjakarsachinedu/take-screenshot
 
 environment:
-  sdk: '>=2.19.0 <3.0.0'
+  sdk: ">=2.19.0 <3.0.0"
   flutter: ">=1.17.0"
 
 dependencies:

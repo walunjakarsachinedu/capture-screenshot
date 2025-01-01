@@ -1,3 +1,3 @@
-## 0.0.6
+## 0.0.7
 
-* TODO: Updated README.md
+- TODO: Updated README.md
