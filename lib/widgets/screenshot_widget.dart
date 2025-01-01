@@ -10,8 +10,15 @@ import 'package:capture_screenshots/widgets/take_screenshot_widget.dart';
 class ScreenShotWidget extends StatefulWidget {
 	final List<Widget> children;
 	final ScreenShotController? controller;
+	final MainAxisSize mainAxisSize;
 	final CrossAxisAlignment crossAxisAlignment;
-  const ScreenShotWidget({Key? key, required this.children, this.controller, this.crossAxisAlignment = CrossAxisAlignment.start}) : super(key: key);
+  const ScreenShotWidget({
+    Key? key,
+    required this.children,
+    this.controller,
+		this.mainAxisSize = MainAxisSize.max,
+    this.crossAxisAlignment = CrossAxisAlignment.start,
+  }) : super(key: key);
 
   @override
   State<ScreenShotWidget> createState() => _ScreenShotWidgetState();
@@ -47,6 +54,7 @@ class _ScreenShotWidgetState extends State<ScreenShotWidget> {
     return RepaintBoundary(
       key: _repaintKey,
       child: Column(
+				mainAxisSize: widget.mainAxisSize,
 				crossAxisAlignment: widget.crossAxisAlignment,
         children: widget.children,
       ),
